@@ -10,6 +10,9 @@ class Main {
 
         while (opcion != 6) {
             switch (opcion) {
+                case 2:
+                    manejoCRUD.agregarCliente();
+                    break;
                 case 6:
                      
                     break;
