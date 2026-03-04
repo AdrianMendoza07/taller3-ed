@@ -1,9 +1,10 @@
 
 import java.util.Scanner;
+import java.io.IOException;
 
 class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese que opcion desea realizar: ");
         int opcion = sc.nextInt();
