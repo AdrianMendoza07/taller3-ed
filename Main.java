@@ -20,6 +20,8 @@ class Main {
                 default:
                     throw new AssertionError();
             }
+            System.out.println("Ingrese que opcion desea realizar: ");
+            opcion = sc.nextInt();
         }
 
     }
