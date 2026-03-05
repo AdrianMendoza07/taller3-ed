@@ -81,7 +81,7 @@ class manejoCRUD {
         }
         System.out.println("Clientes que han realizado compras: ");
         for (int i = 0; i < clientes.size(); i++){
-            System.out.println("Nombre: " + clientes.get(i)[1] + "Email: " + clientes.get(i)[2]);
+            System.out.println("Nombre: " + clientes.get(i)[1] + "   Email: " + clientes.get(i)[2]);
         }
     }
 }
