@@ -1,5 +1,6 @@
 
 import java.util.Scanner;
+import java.io.IOException;
 
 
 public class Main {
@@ -19,6 +20,14 @@ public class Main {
             opcion = sc.nextInt();  // 🔹 AHORA se actualiza cada vez
 
             switch (opcion) {
+                case 2:
+                    manejoCRUD.agregarCliente();
+                    break;
+                case 4:
+                    manejoCRUD.verClientesConCompras();
+                    break;
+                case 6:
+                     
 
                 case 1:
                     try {
@@ -36,6 +45,8 @@ public class Main {
                 default:
                     System.out.println("Opción inválida");
             }
+            System.out.println("Ingrese que opcion desea realizar: ");
+            opcion = sc.nextInt();
         }
 
         sc.close();
