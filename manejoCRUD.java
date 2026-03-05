@@ -3,7 +3,7 @@ import java.io.*;
 
 class manejoCRUD {
     public static void main(String[] args) {
-
+        
     }
 
     public static ArrayList<Float> extraerDato(String fileName, int indx) throws FileNotFoundException {

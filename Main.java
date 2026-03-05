@@ -2,8 +2,7 @@
 import java.util.Scanner;
 import java.io.IOException;
 
-
-public class Main {
+class Main {
 
     public static void main(String[] args) throws IOException{
 
@@ -22,6 +21,7 @@ public class Main {
 
             opcion = sc.nextInt();
 
+        while (opcion != 6) {
             switch (opcion) {
                 case 2:
                     manejoCRUD.agregarCliente();
@@ -49,13 +49,11 @@ public class Main {
                 case 5:
                     System.out.println("Saliendo...");
                     break;
-
                 default:
-                    System.out.println("Opción inválida");
+                    throw new AssertionError();
             }
             
         }
 
-        sc.close();
     }
 }
