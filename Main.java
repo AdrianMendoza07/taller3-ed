@@ -14,6 +14,9 @@ class Main {
                 case 2:
                     manejoCRUD.agregarCliente();
                     break;
+                case 4:
+                    manejoCRUD.verClientesConCompras();
+                    break;
                 case 6:
                      
                     break;
