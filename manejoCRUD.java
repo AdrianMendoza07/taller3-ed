@@ -1,14 +1,10 @@
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 class manejoCRUD {
+    public static void main(String[] args) {
+
+    }
 
     public static ArrayList<Float> extraerDato(String fileName, int indx) throws FileNotFoundException {
 
@@ -133,19 +129,6 @@ class manejoCRUD {
 
         bw.close();
     }
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.util.*;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.*;
-import java.util.ArrayList;
-
-class manejoCRUD {
-    public static void main(String[] args) {
-
-    }
     public static void agregarCliente() throws IOException{
         BufferedReader br = new BufferedReader(new FileReader("clientes.csv"));
         String linea;
@@ -170,6 +153,7 @@ class manejoCRUD {
         bw.write(nuevo.toString());
         bw.close();
     }
+    
     public static void verClientesConCompras() throws IOException {
         ArrayList<Integer> clientesConPedidos = new ArrayList<>();
         BufferedReader brPedidos = new BufferedReader(new FileReader("pedidos.csv"));
@@ -221,7 +205,7 @@ class manejoCRUD {
             System.out.println("Nombre: " + clientes.get(i)[1] + "   Email: " + clientes.get(i)[2]);
         }
     }
-}
+
 
     public static void ordenarproducto() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("productos.csv"));
