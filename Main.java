@@ -1,36 +1,61 @@
 
 import java.util.Scanner;
+import java.io.IOException;
 
-class Main {
+
+public class Main {
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("3. Calcular total ventas.");
-        System.out.print("Ingrese que opcion desea realizar: ");
-        int opcion = sc.nextInt();
+        int opcion = 0;
 
         while (opcion != 5) {
-            switch (opcion) {
-                case 3:
-                    try {
-                        manejoCRUD.totalVentas();
-                        System.out.println("Archivo total_ventas.csv creado con exito");
 
+            System.out.println("\n=== MENU ===");
+            System.out.println("1. Ordenar productos por precio");
+            System.out.println("2. Agregar un Nuevo Cliente");
+            System.out.println("3. Calcular el Total de Ventas por Producto");
+            System.out.println("4. Ver clientes que han realizado compras.");
+            System.out.println("5. Salir");
+            System.out.print("Ingrese la opcion: ");
+
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 2:
+                    manejoCRUD.agregarCliente();
+                    break;
+                case 4:
+                    manejoCRUD.verClientesConCompras();
+                    break;
+                case 1:
+                    try {
+                        manejoCRUD.ordenarproducto();
+                        System.out.println("Archivo creado con éxito");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                     break;
-                case 5:
-                    System.out.println("Saliendo del menu...");
+                case 3:
+                    try {
+                        manejoCRUD.totalVentas();
+                        System.out.println("Archivo creado con éxito");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     break;
+
+                case 5:
+                    System.out.println("Saliendo...");
+                    break;
+
                 default:
-                    throw new AssertionError();
+                    System.out.println("Opción inválida");
             }
-            if (opcion != 5) {
-                System.out.print("Ingrese que opcion desea realizar: ");
-                opcion = sc.nextInt();
-            }
+            
         }
 
+        sc.close();
     }
 }
