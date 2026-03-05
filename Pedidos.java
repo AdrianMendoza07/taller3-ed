@@ -5,6 +5,8 @@ public class Pedidos{
     private int cantidad;
     private int fecha;
 
+    
+
     public String toString(){
         return (id+","+cliente_id+","+producto_id+","+cantidad+","+fecha);
     }
