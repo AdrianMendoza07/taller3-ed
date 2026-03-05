@@ -32,6 +32,56 @@ class manejoCRUD {
         bw.newLine();
         bw.write(nuevo.toString());
         bw.close();
+    }
+    public static void verClientesConCompras() throws IOException {
+        ArrayList<Integer> clientesConPedidos = new ArrayList<>();
+        BufferedReader brPedidos = new BufferedReader(new FileReader("pedidos.csv"));
+        String linea = brPedidos.readLine();
+        while ((linea = brPedidos.readLine()) != null){
+            String[] datos = linea.split(",");
+            int clienteId = Integer.parseInt(datos[1]);
+            
+            boolean existe = false;
+            for (int i = 0; i < clientesConPedidos.size(); i++){
+                if (clientesConPedidos.get(i) == clienteId){
+                    existe = true;
+                    break;
+                }
+            }
+            if (existe == false){
+                clientesConPedidos.add(clienteId);
+            }
+        }
+        brPedidos.close();
+        ArrayList<String[]> clientes = new ArrayList<>();
+        BufferedReader brClientes = new BufferedReader(new FileReader("clientes.csv"));
+        brClientes.readLine();
+        while ((linea = brClientes.readLine()) != null){
+            String[] datos = linea.split(",");
+            int id = Integer.parseInt(datos[0]);
 
+            for (int i = 0; i < clientesConPedidos.size(); i++){
+                if (clientesConPedidos.get(i) == id){
+                    clientes.add(datos);
+                    break;
+                }
+            }   
+        }
+        brClientes.close();
+        for (int i = 0; i < clientes.size() - 1; i++){
+            for (int j = 0; j < clientes.size() - i - 1; j++){
+                String n1 = clientes.get(j)[1];
+                String n2 = clientes.get(j+1)[1];
+                if (n1.compareTo(n2)>0){
+                    String[] n = clientes.get(j);
+                    clientes.set(j, clientes.get(j+1));
+                    clientes.set(j+1, n);
+                }
+            }
+        }
+        System.out.println("Clientes que han realizado compras: ");
+        for (int i = 0; i < clientes.size(); i++){
+            System.out.println("Nombre: " + clientes.get(i)[1] + "Email: " + clientes.get(i)[2]);
+        }
     }
 }
